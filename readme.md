@@ -65,9 +65,11 @@ you are collapsing!
 
 Interaction with the madge command:
 
-`madge --json <folder> > <deps.json>`
-`dependency-analysis collapse <deps.json> <deps-collapsed.json>`
-`madge --circular --stdin < <deps-collapsed>`
+```
+madge --json <folder> > <deps.json>
+dependency-analysis collapse <deps.json> <deps-collapsed.json>
+madge --circular --stdin < <deps-collapsed>
+```
 
 ## API
 
