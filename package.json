@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Tools that supplements the dependency analysis tool madge. So far, there is one tool which allows you to collapse dependencies.",
   "main": "target/index.js",
-  "bin": "target/dependency-analysis.js",
+  "bin": "target/cli/dependency-analysis.js",
   "types": "target/index.d.ts",
   "scripts": {
     "_clean": "rimraf target",
