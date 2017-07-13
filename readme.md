@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/%40marco-eckstein%2Fdependency-analysis.svg)](https://badge.fury.io/js/%40marco-eckstein%2Fdependency-analysis)
+
 Tools that supplement the JavaScript module dependency analysis tool 
 [madge](https://www.npmjs.com/package/madge).
 
