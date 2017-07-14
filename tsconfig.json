@@ -5,7 +5,7 @@
     "declaration": true,
     "sourceMap": true,
     "outDir": "target",
-    "downlevelIteration": true,
+    // "downlevelIteration": true, // Cause problems. See: https://github.com/Microsoft/TypeScript/issues/17195
 
     /* Strict Type-Checking Options */
     "strict": true,

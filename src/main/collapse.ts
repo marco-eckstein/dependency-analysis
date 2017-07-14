@@ -12,8 +12,7 @@ interface DependenciesMultiMap {
 
 function upAll(map: DependenciesMap, levels = 1): DependenciesMultiMap {
     const result: DependenciesMultiMap = {};
-    for (let key of Object.keys(map)) {
-        key = key as string;
+    for (const key of Object.keys(map)) {
         const keyUpped = up(key, levels);
         const valuesUpped = map[key].map(it => up(it, levels));
         if (!result[keyUpped]) {
@@ -31,10 +30,9 @@ function up(path: string, levels: number = 1): string {
 
 function toDependenciesMap(multiMap: DependenciesMultiMap): DependenciesMap {
     const result: DependenciesMap = {};
-    for (let key of Object.keys(multiMap)) {
-        key = key as string;
-        const arrays = multiMap[key];
-        result[key] = [...new Set(concat(arrays))].filter(it => it !== key) as string[];
+    for (const key of Object.keys(multiMap)) {
+        const dependencies = concat(multiMap[key]);
+        result[key] = Array.from(new Set(dependencies)).filter(it => it !== key);
     }
     return result;
 }
