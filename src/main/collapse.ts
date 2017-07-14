@@ -12,13 +12,13 @@ interface DependenciesMultiMap {
 
 function upAll(map: DependenciesMap, levels = 1): DependenciesMultiMap {
     const result: DependenciesMultiMap = {};
-    for (const key of Object.keys(map)) {
-        const keyUpped = up(key, levels);
-        const valuesUpped = map[key].map(it => up(it, levels));
-        if (!result[keyUpped]) {
-            result[keyUpped] = [];
+    for (const module of Object.keys(map)) {
+        const moduleUpped = up(module, levels);
+        const dependenciesUpped = map[module].map(it => up(it, levels));
+        if (!result[moduleUpped]) {
+            result[moduleUpped] = [];
         }
-        result[keyUpped].push(valuesUpped);
+        result[moduleUpped].push(dependenciesUpped);
     }
     return result;
 }
@@ -30,9 +30,9 @@ function up(path: string, levels: number = 1): string {
 
 function toDependenciesMap(multiMap: DependenciesMultiMap): DependenciesMap {
     const result: DependenciesMap = {};
-    for (const key of Object.keys(multiMap)) {
-        const dependencies = util.concat(multiMap[key]);
-        result[key] = util.distinct(dependencies).filter(it => it !== key);
+    for (const folder of Object.keys(multiMap)) {
+        const dependencies = util.flatten(multiMap[folder]);
+        result[folder] = util.distinct(dependencies).filter(it => it !== folder);
     }
     return result;
 }
