@@ -1,5 +1,5 @@
 import DependenciesMap from "./DependenciesMap";
-import { concat } from "./util";
+import * as util from "./util";
 
 export default function collapse(map: DependenciesMap, levels: number = 1): DependenciesMap {
     const multiMap = upAll(map, levels);
@@ -31,8 +31,8 @@ function up(path: string, levels: number = 1): string {
 function toDependenciesMap(multiMap: DependenciesMultiMap): DependenciesMap {
     const result: DependenciesMap = {};
     for (const key of Object.keys(multiMap)) {
-        const dependencies = concat(multiMap[key]);
-        result[key] = Array.from(new Set(dependencies)).filter(it => it !== key);
+        const dependencies = util.concat(multiMap[key]);
+        result[key] = util.distinct(dependencies).filter(it => it !== key);
     }
     return result;
 }
