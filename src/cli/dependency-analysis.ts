@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import * as program from "commander";
-import * as fs from "fs";
+import * as getStdin from "get-stdin";
 
 import * as packageJson from "../../package.json";
 import collapse from "../main/collapse";
@@ -9,20 +9,19 @@ import collapse from "../main/collapse";
 const version = (packageJson as any).version;
 
 program
-    .usage("collapse [options] inputFile outputFile")
+    .usage("collapse [options] It reads from STDIN and writes to STDOUT.")
     .option("collapse", "Collapse dependencies")
     .option("-l, --levels [integer]", "If collapsing, specifies the level of collapsing. (default: 1)", 1)
     .version(version)
     .parse(process.argv);
 
-if (program.collapse && program.args.length === 2) {
-    const inputFile = program.args[0];
-    const outputFile = program.args[1];
-    const input = fs.readFileSync(inputFile, "utf8");
-    const collapsed = collapse(JSON.parse(input), program.levels);
-    const output = JSON.stringify(collapsed, null, 2);
-    fs.writeFileSync(outputFile, output, { encoding: "utf8" });
-    process.exit(0);
+if (program.collapse) {
+    getStdin().then(input => {
+        const collapsed = collapse(JSON.parse(input), program.levels);
+        const output = JSON.stringify(collapsed, null, 2);
+        log(output);
+        process.exit();
+    });
 } else {
     log(program.helpInformation());
     process.exit(1);

@@ -11,7 +11,7 @@ coarse-grained overview of your project structure.
 
 ## Command-line
 
-Madge analyzes your dependencies and lets you output them in various format, e.g. JSON: `madge --json <folder> > deps.json`
+Madge analyzes your dependencies and lets you output them in various format, e.g. JSON: `madge --json modules-base-dir > dependencies.json`
 
 An example output may be:
 
@@ -28,7 +28,7 @@ An example output may be:
 ```
 
 If your project is large, your dependencies (especially when viewed as an image) may become overwhelming.
-Use `dependency-analysis collapse <deps.json> <deps-collapsed.json>` to collapse them by a level:
+Use `dependency-analysis collapse < dependencies.json` to collapse them by a level:
 
 ```
 {
@@ -40,7 +40,7 @@ Use `dependency-analysis collapse <deps.json> <deps-collapsed.json>` to collapse
 ```
 
 You can also collapse by multiple levels:
-`dependency-analysis collapse --levels 2 <deps.json> <deps-collapsed.json>`
+`dependency-analysis collapse --levels 2 < dependencies.json`
 
 Input:
 
@@ -65,11 +65,7 @@ you are collapsing!
 
 Interaction with the madge command:
 
-```
-madge --json <folder> > <deps.json>
-dependency-analysis collapse <deps.json> <deps-collapsed.json>
-madge --circular --stdin < <deps-collapsed>
-```
+`madge --json modules-base-dir | dependency-analysis collapse > dependencies-collapsed.json`
 
 ## API
 
