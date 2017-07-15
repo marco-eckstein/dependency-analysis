@@ -1,6 +1,6 @@
 {
   "name": "@marco-eckstein/dependency-analysis",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Tools that supplements the dependency analysis tool madge. So far, there is one tool which allows you to collapse dependencies.",
   "main": "target/index.js",
   "bin": "target/cli/dependency-analysis.js",
