@@ -2,10 +2,15 @@
   "compilerOptions": {
     /* Basic Options */
     "target": "es5",
+    "lib":[
+      "dom",
+      "es6",
+      "scripthost"
+    ],
     "declaration": true,
     "sourceMap": true,
     "outDir": "target",
-    // "downlevelIteration": true, // Cause problems. See: https://github.com/Microsoft/TypeScript/issues/17195
+    "downlevelIteration": true,
 
     /* Strict Type-Checking Options */
     "strict": true,
