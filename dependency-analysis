@@ -1,4 +1,4 @@
 #!/bin/sh
 
-node "target/cli/dependency-analysis.js" "$@"
+node "target/src/cli/dependency-analysis.js" "$@"
 exit $?
