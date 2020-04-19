@@ -6,13 +6,11 @@ import * as getStdin from "get-stdin";
 import * as packageJson from "../../package.json";
 import collapse from "../main/collapse";
 
-const version = (packageJson as any).version;
-
 program
     .usage("collapse [options] It reads from STDIN and writes to STDOUT.")
     .option("collapse", "Collapse dependencies")
     .option("-l, --levels [integer]", "If collapsing, specifies the level of collapsing. (default: 1)", 1)
-    .version(version)
+    .version(packageJson.version)
     .parse(process.argv);
 
 if (program.collapse) {

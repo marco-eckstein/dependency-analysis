@@ -31,6 +31,7 @@
     "emitDecoratorMetadata": true,
 
     /* Other Options */
-    "pretty": true
+    "pretty": true,
+    "resolveJsonModule": true
   }
 }
