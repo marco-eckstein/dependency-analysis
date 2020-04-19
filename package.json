@@ -38,22 +38,21 @@
   },
   "homepage": "https://github.com/marco-eckstein/dependency-analysis#readme.md",
   "dependencies": {
-    "commander": "^2.11.0",
-    "core-js": "^2.4.1",
-    "get-stdin": "^5.0.1",
-    "source-map-support": "^0.4.15"
+    "commander": "^4.1.1",
+    "core-js": "^3.6.5",
+    "get-stdin": "^7.0.0",
+    "source-map-support": "^0.5.16"
   },
   "_comment": "Depend on @types/node, because a library is using it and we need a specific version to prevent a bug. See: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/15104",
   "devDependencies": {
-    "@types/commander": "^2.9.1",
-    "@types/get-stdin": "^5.0.1",
-    "@types/jasmine": "^2.5.53",
-    "@types/node": "^7.0.7",
-    "chokidar-cli": "^1.2.0",
-    "concurrently": "^3.5.0",
-    "jasmine": "^2.6.0",
-    "rimraf": "^2.6.1",
-    "tslint": "^5.5.0",
-    "typescript": "^2.4.1"
+    "@types/jasmine": "^3.5.10",
+    "@types/node": "^13.13.0",
+    "@types/source-map-support": "^0.5.1",
+    "chokidar-cli": "^2.1.0",
+    "concurrently": "^5.1.0",
+    "jasmine": "^3.5.0",
+    "rimraf": "^3.0.2",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
   }
 }
